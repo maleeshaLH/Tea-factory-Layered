@@ -42,9 +42,10 @@ public class EmployeeBOImpl implements EmployeeBO {
 
       Employee employee = employeeDAO.search(emp_id);
 
-     return  new EmployeeDto(employee.getEmp_id(),employee.getFirst_name(),
+     EmployeeDto employeeDto =  new EmployeeDto(employee.getEmp_id(),employee.getFirst_name(),
               employee.getLast_name(),employee.getNic(),employee.getCity(),employee.getContact_no());
 
+     return employeeDto;
     }
 
     public boolean updateEmployee(EmployeeDto dto) throws SQLException {

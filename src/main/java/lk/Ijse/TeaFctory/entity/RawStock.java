@@ -12,5 +12,5 @@ public class RawStock {
     private String description;
     private int unit_price;
     private int weight;
-    private int qty;
+    private int quality;
 }

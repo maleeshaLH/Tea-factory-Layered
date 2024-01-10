@@ -36,7 +36,7 @@ public class RawStockBOIMpl implements RawStockBO {
         ArrayList<RawStockDto> rawStockDtos =new ArrayList<>();
         for (RawStock rawStock :rawStocks){
             rawStockDtos.add(new RawStockDto(rawStock.getRs_id(),rawStock.getDescription(),
-                    rawStock.getUnit_price(),rawStock.getWeight(),rawStock.getQty()));
+                    rawStock.getUnit_price(),rawStock.getWeight(),rawStock.getQuality()));
         }
         return rawStockDtos;
 
@@ -60,7 +60,7 @@ public class RawStockBOIMpl implements RawStockBO {
 
         RawStock rawStock =rawStockDAO.search(id);
         RawStockDto rawStockDto =new RawStockDto(rawStock.getRs_id(),rawStock.getDescription(),
-                rawStock.getUnit_price(),rawStock.getWeight(),rawStock.getQty());
+                rawStock.getUnit_price(),rawStock.getWeight(),rawStock.getQuality());
         return rawStockDto;
 
     }

@@ -138,8 +138,14 @@ public class PreparedStockFormcontroller {
     void btnsaveeOnAction(ActionEvent event) {
 
         boolean isPreparedStockIdValidated = validatePreparedStock();
+        boolean isPreparedStockNameValidated =validatePreparedStock();
+        boolean isPreparedStockUnitPriceValidated = validatePreparedStock();
+        boolean isPreparedStockWeightValidated = validatePreparedStock();
+        boolean isPreparedStockQtyValidated = validatePreparedStock();
 
-        if (isPreparedStockIdValidated) {
+
+        if (isPreparedStockIdValidated && isPreparedStockNameValidated && isPreparedStockUnitPriceValidated &&
+                isPreparedStockWeightValidated && isPreparedStockQtyValidated) {
 
 
             String p_id = txtId.getText();
@@ -175,6 +181,37 @@ public class PreparedStockFormcontroller {
             new Alert(Alert.AlertType.ERROR, "Invalid Prepared Stock ID!").show();
             return false;
         }
+
+        String name =txtname.getText();
+        boolean isPreparedStockNameValidated =Pattern.matches("[A-Za-z]+([ '-][A-Za-z]+)*$",name);
+        if (!isPreparedStockNameValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Prepared Stock name!").show();
+            return false;
+        }
+
+        String unitPrice =txtUnitPrice.getText();
+        boolean isPreparedStockUnitPriceValidated =Pattern.matches("[0-9]{1,}",unitPrice);
+        if (!isPreparedStockUnitPriceValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Prepared Stock Unit Price!").show();
+            return false;
+        }
+
+
+
+        String weight =txtweight.getText();
+        boolean isPreparedStockWeightValidated =Pattern.matches("[0-9]{1,}",weight);
+        if (!isPreparedStockWeightValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Prepared Stock Weight!").show();
+            return false;
+        }
+
+        String qty =txtqty.getText();
+        boolean isPreparedStockQtyValidated =Pattern.matches("[0-9]{1,}",qty);
+        if (!isPreparedStockQtyValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Prepared Stock Qty!").show();
+            return false;
+        }
+
         return true;
 
     }

@@ -50,8 +50,8 @@ public class PreperedStockDAOImpl implements PreperedStockDAO {
     public boolean update(PreparedStock entity) throws SQLException {
 
         return SQLUtil.execute("UPDATE prepared_stock SET description = ?,unit_price =? ,weight = ?,qty = ? WHERE p_id =?",
-                entity.getP_id(),entity.getDescription(),entity.getUnit_price(),
-                entity.getWeight(),entity.getQty());
+               entity.getDescription(),entity.getUnit_price(),
+                entity.getWeight(),entity.getQty(),entity.getP_id());
 
 
 

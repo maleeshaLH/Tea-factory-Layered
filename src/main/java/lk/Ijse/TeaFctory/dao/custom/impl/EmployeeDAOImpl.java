@@ -48,10 +48,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     }
 
     public Employee search(String emp_id) throws SQLException {
-        ResultSet rst =  SQLUtil.execute("SELECT * FROM employee WHERE emp_id = ?");
+        ResultSet rst =  SQLUtil.execute("SELECT * FROM employee WHERE emp_id = ?",emp_id);
         rst.next();
-        return new Employee(emp_id,rst.getString("first_name"),rst.getString("last_name"),
-                rst.getString("nic"),rst.getString("city"),rst.getString("tel"));
+        return new Employee(emp_id+"",
+                rst.getString("first_name"),
+                rst.getString("last_name"),
+                rst.getString("nic"),
+                rst.getString("city"),
+                rst.getString("Contact_no"));
 
     }
 

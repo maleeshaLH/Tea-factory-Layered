@@ -26,7 +26,7 @@ public class RawStockDAOImpl implements RawStockDAO {
    public boolean save(RawStock entity) throws SQLException {
         return SQLUtil.execute("INSERT INTO raw_stock VALUES(?, ?, ?, ?,?)",
                 entity.getRs_id(),entity.getDescription(),entity.getUnit_price(),
-               entity.getWeight(),entity.getQty());
+               entity.getWeight(),entity.getQuality());
     }
 
    @Override
@@ -56,7 +56,7 @@ public class RawStockDAOImpl implements RawStockDAO {
    public boolean update(RawStock entity) throws SQLException {
         return SQLUtil.execute("UPDATE raw_stock SET description = ?,unit_price = ? ,weight = ?, quality = ? WHERE rs_id = ?",
                 entity.getDescription(),entity.getUnit_price(),entity.getWeight(),
-                entity.getQty(),entity.getRs_id());
+                entity.getQuality(),entity.getRs_id());
 
 
     }

@@ -31,8 +31,8 @@ public class CustomerBOImpl implements CustomerBO {
     }
 
     public boolean updateCustomer(CustomerDto dto) throws SQLException {
-        return customerDAO.update(new Customer(dto.getId(),dto.getFirst_name(),
-                dto.getLast_name(),dto.getTel(),dto.getAddress(),dto.getCity()));
+        return customerDAO.update(new Customer(dto.getFirst_name(),
+                dto.getLast_name(),dto.getTel(),dto.getAddress(),dto.getCity(),dto.getId()));
 
     }
 

@@ -5,14 +5,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.Ijse.TeaFctory.bo.custom.RawStockBO;
 import lk.Ijse.TeaFctory.bo.custom.impl.RawStockBOIMpl;
 import lk.Ijse.TeaFctory.dto.RawStockDto;
@@ -21,6 +19,7 @@ import lk.Ijse.TeaFctory.dto.tm.RawStockTm;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class RawStockFormController {
     @FXML
@@ -129,27 +128,81 @@ public class RawStockFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String ra_id = txtR_id.getText();
-        String name = txtName.getText();
-        int unic_price = Integer.parseInt(txtUnicprice.getText());
-        int weight =Integer.parseInt(txtweight.getText());
-        int quality = Integer.parseInt(txtqulity.getText());
+        boolean isRawStockIdValidated = validateRawStock();
+        boolean isRawStockNameValidated = validateRawStock();
+        boolean isRawStockUnitPriceValidated = validateRawStock();
+        boolean isRawStockWeightValidated = validateRawStock();
+        boolean isRawStockQtyValidated = validateRawStock();
+
+        if (isRawStockIdValidated && isRawStockNameValidated && isRawStockUnitPriceValidated &&
+        isRawStockWeightValidated && isRawStockQtyValidated){
+
+            String ra_id = txtR_id.getText();
+            String name = txtName.getText();
+            int unic_price = Integer.parseInt(txtUnicprice.getText());
+            int weight =Integer.parseInt(txtweight.getText());
+            int quality = Integer.parseInt(txtqulity.getText());
 
 
-        var dto = new RawStockDto(ra_id,name,unic_price,weight,quality);
+            var dto = new RawStockDto(ra_id,name,unic_price,weight,quality);
 
 
-        try {
-            boolean isSaved = rawStockBO.saveRawStock(dto);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "save raw stock!").show();
-                clesrFields();
-                setCellValueFactory();
-                loadAllCustomers();
+            try {
+                boolean isSaved = rawStockBO.saveRawStock(dto);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "save raw stock!").show();
+                    clesrFields();
+                    setCellValueFactory();
+                    loadAllCustomers();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
+
+    }
+
+    private boolean validateRawStock() {
+        String id = txtR_id.getText();
+//        boolean isCustomerIDValidated = Pattern.compile("[C][0-9]{3,}").matcher(idText).matches();
+        boolean isRawStockIdValidated = Pattern.matches("[R][0-9]{2,}", id);
+        if (!isRawStockIdValidated) {
+            new Alert(Alert.AlertType.ERROR, "Invalid RawStock Stock ID!").show();
+            return false;
+        }
+
+        String name =txtName.getText();
+        boolean isRawStockNameValidated =Pattern.matches("[A-Za-z]+([ '-][A-Za-z]+)*$",name);
+        if (!isRawStockNameValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid RawStock Stock name!").show();
+            return false;
+        }
+
+        String unitPrice =txtUnicprice.getText();
+        boolean isRawStockUnitPriceValidated =Pattern.matches("[0-9]{1,}",unitPrice);
+        if (!isRawStockUnitPriceValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid RawStock Stock Unit Price!").show();
+            return false;
+        }
+
+
+
+        String weight =txtweight.getText();
+        boolean isRawStockWeightValidated =Pattern.matches("[0-9]{1,}",weight);
+        if (!isRawStockWeightValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid RawStock Stock Weight!").show();
+            return false;
+        }
+
+        String qty =txtqulity.getText();
+        boolean isRawStockQtyValidated =Pattern.matches("[0-9]{1,}",qty);
+        if (!isRawStockQtyValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid RawStock Stock Qty!").show();
+            return false;
+        }
+
+        return true;
 
     }
 
