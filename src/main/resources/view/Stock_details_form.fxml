@@ -14,14 +14,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="706.0" prefWidth="1044.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.TeaFctory.controller.StockDetailsFormcontroller">
+<AnchorPane fx:id="root" prefHeight="730.0" prefWidth="1052.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.TeaFctory.controller.StockDetailsFormcontroller">
    <children>
-      <ImageView fitHeight="708.0" fitWidth="1048.0">
+      <ImageView fitHeight="730.0" fitWidth="1052.0">
          <image>
             <Image url="@../image/peakpx.jpg" />
          </image>
       </ImageView>
-      <Pane layoutX="51.0" layoutY="22.0" prefHeight="655.0" prefWidth="958.0" style="-fx-background-color: #E7F5F5;">
+      <Pane layoutX="54.0" layoutY="37.0" prefHeight="655.0" prefWidth="958.0" style="-fx-background-color: #E7F5F5;">
          <children>
             <Label layoutX="558.0" layoutY="240.0" text="Unit_Price :">
                <font>
@@ -68,7 +68,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="338.0" layoutY="31.0" text="Stock Details Form">
+            <Label layoutX="276.0" layoutY="31.0" text="Stock Details Form">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>

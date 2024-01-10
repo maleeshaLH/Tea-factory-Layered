@@ -6,14 +6,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.Ijse.TeaFctory.bo.custom.SupplierBO;
 import lk.Ijse.TeaFctory.bo.custom.impl.SupplierBOImpl;
 import lk.Ijse.TeaFctory.dto.SupplierDto;
@@ -101,16 +99,9 @@ public class SupplierFormcontroller {
     }
 
 
-    @FXML
-    void btnbackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashBoard_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
 
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("DashBoard");
-        stage.centerOnScreen();
 
-    }
+
 
     @FXML
    public void btnClearOnAction(ActionEvent event) { clesrFields(); }
@@ -228,11 +219,12 @@ public class SupplierFormcontroller {
     }
     @FXML
     public void btnSupplierOrderOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/supplierOrder_form.fxml"));
-        Stage stage = (Stage) root.getScene().getWindow();
-
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("DashBoard");
-        stage.centerOnScreen();
-    }
+//        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/supplierOrder_form.fxml"));
+//        Stage stage = (Stage) root.getScene().getWindow();
+//
+//        stage.setScene(new Scene(anchorPane));
+//        stage.setTitle("DashBoard");
+//        stage.centerOnScreen();
+        this.root.getChildren().clear();
+       this.root.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/supplierOrder_form.fxml")));    }
 }

@@ -13,14 +13,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.TeaFctory.controller.PreparedStockFormcontroller">
+<AnchorPane fx:id="root" prefHeight="730.0" prefWidth="1052.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.TeaFctory.controller.PreparedStockFormcontroller">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0">
+      <ImageView fitHeight="730.0" fitWidth="1052.0">
          <image>
             <Image url="@../image/peakpx.jpg" />
          </image>
       </ImageView>
-      <Pane layoutX="67.0" layoutY="24.0" prefHeight="647.0" prefWidth="1090.0" style="-fx-background-color: #D7DBDD;">
+      <Pane layoutX="34.0" layoutY="48.0" prefHeight="647.0" prefWidth="995.0" style="-fx-background-color: #D7DBDD;">
          <children>
             <TextField fx:id="txtId" layoutX="95.0" layoutY="164.0" onAction="#txtsearchOnAction" prefHeight="25.0" prefWidth="200.0" promptText="id" style="-fx-border-color: black; -fx-border-radius: 10;">
                <font>
@@ -43,7 +43,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </TextField>
-            <TableView fx:id="tblStock" layoutX="88.0" layoutY="411.0" prefHeight="213.0" prefWidth="727.0" style="-fx-border-color: black; -fx-border-radius: 10;">
+            <TableView fx:id="tblStock" layoutX="46.0" layoutY="411.0" prefHeight="213.0" prefWidth="727.0" style="-fx-border-color: black; -fx-border-radius: 10;">
               <columns>
                 <TableColumn fx:id="colproductionid" prefWidth="140.80001831054688" text="Production id" />
                 <TableColumn fx:id="colname" prefWidth="135.99996948242188" text="name" />
@@ -52,17 +52,17 @@
                   <TableColumn fx:id="colqty" prefWidth="172.800048828125" text="Qty" />
               </columns>
             </TableView>
-            <JFXButton layoutX="884.0" layoutY="416.0" onAction="#btnsaveeOnAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-radius: 10;" text="Save" textFill="BLUE">
+            <JFXButton layoutX="800.0" layoutY="416.0" onAction="#btnsaveeOnAction" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-radius: 10;" text="Save" textFill="BLUE">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="884.0" layoutY="468.0" onAction="#btnupdateOnAction" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-radius: 10;" text="Update" textFill="BLUE">
+            <JFXButton layoutX="803.0" layoutY="468.0" onAction="#btnupdateOnAction" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-radius: 10;" text="Update" textFill="BLUE">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="746.0" layoutY="325.0" onAction="#btnRawStockOnAction" prefHeight="40.0" prefWidth="146.0" style="-fx-background-color: #999999; -fx-border-radius: 10; -fx-border-color: black;" text="RAW STOCK" textFill="RED">
+            <JFXButton layoutX="665.0" layoutY="325.0" onAction="#btnRawStockOnAction" prefHeight="40.0" prefWidth="146.0" style="-fx-background-color: #999999; -fx-border-radius: 10; -fx-border-color: black;" text="RAW STOCK" textFill="RED">
                <styleClass>
                   <String fx:value="fontcolor" />
                   <String fx:value="penenew" />
@@ -104,7 +104,7 @@
                   <Font name="System Bold Italic" size="48.0" />
                </font>
             </Label>
-            <JFXButton layoutX="924.0" layoutY="575.0" onAction="#btnClearOnAction" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: black;" text="  ">
+            <JFXButton layoutX="823.0" layoutY="575.0" onAction="#btnClearOnAction" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: black;" text="  ">
                <styleClass>
                   <String fx:value="fontcolor" />
                   <String fx:value="penenew" />
@@ -120,36 +120,17 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton layoutX="884.0" layoutY="517.0" onAction="#btndeleteOnAction" prefHeight="30.0" prefWidth="133.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-radius: 10;" text="Delete" textFill="BLUE">
+            <JFXButton layoutX="802.0" layoutY="517.0" onAction="#btndeleteOnAction" prefHeight="30.0" prefWidth="133.0" style="-fx-background-color: WHITE; -fx-border-color: black; -fx-border-radius: 10;" text="Delete" textFill="BLUE">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="929.0" layoutY="325.0" onAction="#btnStockDetailsOnActiom" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #999999; -fx-border-radius: 10; -fx-border-color: black;" text="StockDetails" textFill="RED">
+            <JFXButton layoutX="830.0" layoutY="325.0" onAction="#btnStockDetailsOnActiom" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #999999; -fx-border-radius: 10; -fx-border-color: black;" text="StockDetails" textFill="RED">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
-      <JFXButton layoutX="1037.0" layoutY="44.0" onAction="#btnbackOnAction" prefHeight="34.0" prefWidth="98.0" style="-fx-border-radius: 10; -fx-border-color: black; -fx-background-color: #F5EEF8;" text="Back">
-         <styleClass>
-            <String fx:value="fontcolor" />
-            <String fx:value="penenew" />
-         </styleClass>
-         <opaqueInsets>
-            <Insets right="56.0" top="10.0" />
-         </opaqueInsets>
-         <font>
-            <Font size="14.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="31.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/previous.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
    </children>
 </AnchorPane>

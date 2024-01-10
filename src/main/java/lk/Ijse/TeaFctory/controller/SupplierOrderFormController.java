@@ -6,12 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import lk.Ijse.TeaFctory.bo.custom.RawStockBO;
 import lk.Ijse.TeaFctory.bo.custom.SupplierBO;
 import lk.Ijse.TeaFctory.bo.custom.SupplierOrderBO;
@@ -190,12 +188,8 @@ public class SupplierOrderFormController {
 
     @FXML
     void btnbackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = (FXMLLoader.load(this.getClass().getResource("/view/supplier_form.fxml")));
-        Scene scene = new Scene(anchorPane);
-        Stage stage =(Stage) root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("supplier Form");
-        stage.centerOnScreen();
+        this.root.getChildren().clear();
+        this.root.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/supplier_form.fxml")));
     }
 
     @FXML

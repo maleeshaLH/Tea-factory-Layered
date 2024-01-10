@@ -248,21 +248,25 @@ public class PreparedStockFormcontroller {
 
     @FXML
     void btnRawStockOnAction(ActionEvent event) throws IOException {
-        Stage stage=new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/rawStock_form.fxml"))));
-        stage.setTitle("rawStock Form");
-        stage.centerOnScreen();
-
-        stage.show();
+//        Stage stage=new Stage();
+//        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/rawStock_form.fxml"))));
+//        stage.setTitle("rawStock Form");
+//        stage.centerOnScreen();
+//
+//        stage.show();
+        this.root.getChildren().clear();
+      this.root.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/rawStock_form.fxml")));
 
     }
     @FXML
     public void btnStockDetailsOnActiom(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = (FXMLLoader.load(this.getClass().getResource("/view/Stock_details_form.fxml")));
-        Scene scene = new Scene(anchorPane);
-        Stage stage =(Stage) root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Stock Details Form");
-        stage.centerOnScreen();
+//        AnchorPane anchorPane = (FXMLLoader.load(this.getClass().getResource("/view/Stock_details_form.fxml")));
+//        Scene scene = new Scene(anchorPane);
+//        Stage stage =(Stage) root.getScene().getWindow();
+//        stage.setScene(scene);
+//        stage.setTitle("Stock Details Form");
+//        stage.centerOnScreen();
+        this.root.getChildren().clear();
+        this.root.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/Stock_details_form.fxml")));
     }
 }

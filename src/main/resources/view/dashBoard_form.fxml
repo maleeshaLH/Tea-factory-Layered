@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="DashBoard" prefHeight="731.0" prefWidth="1279.0" style="-fx-border-color: red; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.TeaFctory.controller.DashBoardFormcontroller">
+<AnchorPane fx:id="DashBoard" prefHeight="735.0" prefWidth="1296.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.TeaFctory.controller.DashBoardFormcontroller">
    <children>
-      <Pane layoutX="1.0" prefHeight="731.0" prefWidth="253.0" style="-fx-background-color: #D5DBDB; -fx-background-radius: 30;">
+      <Pane layoutX="-13.0" layoutY="-4.0" prefHeight="731.0" prefWidth="253.0" style="-fx-background-color: #D5DBDB; -fx-background-radius: 30;">
          <children>
             <JFXButton layoutX="29.0" layoutY="177.0" onAction="#btnCustomeronAction" prefHeight="53.0" prefWidth="174.0" style="-fx-border-color: black; -fx-border-radius: 10; ack: ;" text="Customer" wrapText="true">
                <font>
@@ -50,7 +50,7 @@
             </JFXButton>
          </children>
       </Pane>
-      <AnchorPane fx:id="root" layoutX="231.0" layoutY="3.0" prefHeight="730.0" prefWidth="1034.0" style="-fx-background-color: #EBEDEF;">
+      <AnchorPane fx:id="root" layoutX="244.0" layoutY="3.0" prefHeight="730.0" prefWidth="1052.0" style="-fx-background-color: #EBEDEF;">
          <children>
             <Pane focusTraversable="true" layoutX="332.0" layoutY="144.0" prefHeight="120.0" prefWidth="140.0" style="-fx-background-color: #EBDEF0; -fx-background-radius: 30;">
                <children>
@@ -147,47 +147,47 @@
                   </ImageView>
                </graphic>
             </Label>
+            <Pane prefHeight="74.0" prefWidth="1008.0">
+               <children>
+                  <Label layoutX="22.0" layoutY="14.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: blue; -fx-border-radius: 10;" text="DashBoard">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="640.0" layoutY="20.0" prefHeight="40.0" prefWidth="201.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: blue; -fx-border-radius: 20;" text="Search hear...">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="21.0">
+                           <image>
+                              <Image url="@../image/search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label layoutX="874.0" layoutY="3.0" prefHeight="53.0" prefWidth="41.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 10; -fx-border-color: blue;">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="39.0">
+                           <image>
+                              <Image url="@../image/notification.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+                  <Label layoutX="944.0" layoutY="7.0" prefHeight="53.0" prefWidth="58.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: blue; -fx-border-radius: 10;">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="46.0">
+                           <image>
+                              <Image url="@../image/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
-      <Pane layoutX="237.0" layoutY="3.0" prefHeight="74.0" prefWidth="1008.0">
-         <children>
-            <Label layoutX="22.0" layoutY="14.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: blue; -fx-border-radius: 10;" text="DashBoard">
-               <font>
-                  <Font name="System Bold" size="36.0" />
-               </font>
-            </Label>
-            <Label layoutX="640.0" layoutY="20.0" prefHeight="40.0" prefWidth="201.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: blue; -fx-border-radius: 20;" text="Search hear...">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="28.0" fitWidth="21.0">
-                     <image>
-                        <Image url="@../image/search.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
-            <Label layoutX="874.0" layoutY="3.0" prefHeight="53.0" prefWidth="41.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-radius: 10; -fx-border-color: blue;">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="39.0">
-                     <image>
-                        <Image url="@../image/notification.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
-            <Label layoutX="944.0" layoutY="7.0" prefHeight="53.0" prefWidth="58.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: blue; -fx-border-radius: 10;">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="46.0">
-                     <image>
-                        <Image url="@../image/user.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
-         </children>
-      </Pane>
    </children>
    <opaqueInsets>
       <Insets top="10.0" />

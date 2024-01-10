@@ -13,14 +13,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.TeaFctory.controller.SupplierFormcontroller">
+<AnchorPane fx:id="root" prefHeight="730.0" prefWidth="1052.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.TeaFctory.controller.SupplierFormcontroller">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0">
+      <ImageView fitHeight="730.0" fitWidth="1052.0">
          <image>
             <Image url="@../image/peakpx.jpg" />
          </image>
       </ImageView>
-      <Pane layoutX="95.0" layoutY="47.0" prefHeight="618.0" prefWidth="1002.0" style="-fx-background-color: #D7DBDD;">
+      <Pane layoutX="31.0" layoutY="57.0" prefHeight="618.0" prefWidth="979.0" style="-fx-background-color: #D7DBDD;">
          <children>
             <TextField fx:id="txtS_id" layoutX="116.0" layoutY="135.0" onAction="#txtsearchOnAction" promptText="Supplier id" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: black;">
                <font>
@@ -73,21 +73,6 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton layoutX="865.0" layoutY="30.0" onAction="#btnbackOnAction" prefHeight="41.0" prefWidth="109.0" style="-fx-border-radius: 10; -fx-background-color: #F5EEF8; -fx-border-color: black;" text="Back" textFill="#080808">
-               <opaqueInsets>
-                  <Insets right="56.0" top="10.0" />
-               </opaqueInsets>
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/previous.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
             <TableView fx:id="tblSupplier" layoutX="81.0" layoutY="347.0" prefHeight="254.0" prefWidth="664.0" style="-fx-border-color: black; -fx-border-radius: 10;">
               <columns>
                 <TableColumn fx:id="colS_id" prefWidth="133.60003662109375" style="-fx-background-color: E0D8B0;" text="Supplier id" />
@@ -117,7 +102,7 @@
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="245.0" layoutY="18.0" text="Supplier Manage . ">
+            <Label layoutX="273.0" layoutY="18.0" text="Supplier Manage . ">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
@@ -127,7 +112,7 @@
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="862.0" layoutY="81.0" onAction="#btnSupplierOrderOnAction" style="-fx-background-color: #F5EEF8; -fx-border-color: black; -fx-border-radius: 10;" text="Supplier Orders">
+            <JFXButton layoutX="828.0" layoutY="25.0" onAction="#btnSupplierOrderOnAction" style="-fx-background-color: #F5EEF8; -fx-border-color: black; -fx-border-radius: 10;" text="Supplier Orders">
                <font>
                   <Font size="14.0" />
                </font>

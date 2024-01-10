@@ -190,12 +190,8 @@ public class RawStockFormController {
 
     @FXML
     void btnbackOnAction(ActionEvent event) throws IOException {
-        Stage stage=new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"))));
-        stage.setTitle("dashboard Form");
-        stage.centerOnScreen();
-
-        stage.show();
+        this.root.getChildren().clear();
+        this.root.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/stock_form.fxml")));
 
     }
 

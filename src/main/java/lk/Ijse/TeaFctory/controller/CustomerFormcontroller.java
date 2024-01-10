@@ -1,16 +1,15 @@
 package lk.Ijse.TeaFctory.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import lk.Ijse.TeaFctory.bo.custom.CustomerBO;
 import lk.Ijse.TeaFctory.bo.custom.impl.CustomerBOImpl;
 import lk.Ijse.TeaFctory.dao.custom.impl.CustomerDAOImpl;
@@ -83,13 +82,13 @@ public class CustomerFormcontroller {
     }
 
     private void loadAllCustomers() {
-       // ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
+        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
 
         try {
             ArrayList<CustomerDto> allcustomer =  customerBO.getAllCustomers();
 
             for (CustomerDto dto : allcustomer) {
-                tblCustomer.getItems().add(
+                obList.add(
                         new CustomerTm(
                                 dto.getId(),
                                 dto.getFirst_name(),
@@ -101,7 +100,7 @@ public class CustomerFormcontroller {
                 );
             }
 
-            //tblCustomer.setItems(obList);
+            tblCustomer.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -114,6 +113,43 @@ public class CustomerFormcontroller {
         if (!isCustomerIDValidated) {
             new Alert(Alert.AlertType.ERROR, "Invalid Customer ID!").show();
         return false;
+        }
+
+        String Firstname =txtFirst_name.getText();
+        boolean isCustomerFirstNameValidated =Pattern.matches("[A-Za-z]+([ '-][A-Za-z]+)*$",Firstname);
+        if (!isCustomerFirstNameValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Customer First name!").show();
+            return false;
+        }
+
+        String Lastname =txtLast_name.getText();
+        boolean isCustomerLastNameValidated =Pattern.matches("[A-Za-z]+([ '-][A-Za-z]+)*$",Lastname);
+        if (!isCustomerLastNameValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Customer Last name!").show();
+            return false;
+        }
+
+
+
+        String Address =txtAddress.getText();
+        boolean isCustomerAddressValidated =Pattern.matches("[A-Za-z]+([ '-][A-Za-z]+)*$",Address);
+        if (!isCustomerAddressValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Customer Address!").show();
+            return false;
+        }
+
+        String City =txtcity.getText();
+        boolean isCustomerCityValidated =Pattern.matches("[A-Za-z]+([ '-][A-Za-z]+)*$",City);
+        if (!isCustomerCityValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Customer City!").show();
+            return false;
+        }
+
+        String tel =txttel.getText();
+        boolean isCustomerTelValidated =Pattern.matches("[0-9]{10}",tel);
+        if (!isCustomerTelValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Customer Telephone Number!").show();
+            return false;
         }
         return true;
 
@@ -141,8 +177,15 @@ public class CustomerFormcontroller {
     @FXML
     void btnSaveOnAction(ActionEvent event)  {
         boolean isCustomerIdValidated = validateCustomer();
+        boolean isCustomerFirstNameValidated = validateCustomer();
+        boolean isCustomerLastNameValidated = validateCustomer();
+        boolean isCustomerTelValidated = validateCustomer();
+        boolean isCustomerAddressValidated = validateCustomer();
+        boolean isCustomerCityValidated = validateCustomer();
 
-        if (isCustomerIdValidated){
+        if (isCustomerIdValidated && isCustomerFirstNameValidated && isCustomerLastNameValidated && isCustomerTelValidated &&
+                isCustomerAddressValidated && isCustomerCityValidated){
+
             String id = txtId.getText();
             String first_name = txtFirst_name.getText();
             String last_name =txtLast_name.getText();
@@ -225,12 +268,14 @@ public class CustomerFormcontroller {
 
 
     public void btnbackOnAction(ActionEvent event) throws IOException {
-        Stage stage=new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"))));
-        stage.setTitle("dashboard Form");
-        stage.centerOnScreen();
-
-        stage.show();
+//        Stage stage=new Stage();
+//        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"))));
+//        stage.setTitle("dashboard Form");
+//        stage.centerOnScreen();
+//
+////        stage.show();
+//        this.root.getChildren().clear();
+//        this.root.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml")));
     }
 
     public void btnClearOnAction(ActionEvent event) {

@@ -15,14 +15,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.TeaFctory.controller.SupplierOrderFormController">
+<AnchorPane fx:id="root" prefHeight="730.0" prefWidth="1052.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.Ijse.TeaFctory.controller.SupplierOrderFormController">
    <children>
-      <ImageView fitHeight="700.0" fitWidth="1200.0">
+      <ImageView fitHeight="730.0" fitWidth="1052.0">
          <image>
             <Image url="@../image/peakpx.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="btnAddToOrder" layoutX="95.0" layoutY="61.0" onDragDetected="#btnAddToOrderOnAction" prefHeight="577.0" prefWidth="1014.0" style="-fx-background-color: #D7DBDD;">
+      <Pane fx:id="btnAddToOrder" layoutX="33.0" layoutY="91.0" onDragDetected="#btnAddToOrderOnAction" prefHeight="578.0" prefWidth="995.0" style="-fx-background-color: #D7DBDD;">
          <children>
             <Label layoutX="519.0" layoutY="125.0" prefHeight="30.0" prefWidth="156.0" text="Supplier Name :">
                <font>
@@ -91,12 +91,12 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblDate" layoutX="735.0" layoutY="16.0" prefHeight="27.0" prefWidth="124.0" style="-fx-border-color: black; -fx-border-radius: 10; -fx-background-color: white;">
+            <Label fx:id="lblDate" layoutX="712.0" layoutY="16.0" prefHeight="27.0" prefWidth="124.0" style="-fx-border-color: black; -fx-border-radius: 10; -fx-background-color: white;">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblTime" layoutX="875.0" layoutY="14.0" prefHeight="27.0" prefWidth="124.0" style="-fx-border-color: black; -fx-border-radius: 10; -fx-background-color: white;">
+            <Label fx:id="lblTime" layoutX="850.0" layoutY="14.0" prefHeight="27.0" prefWidth="124.0" style="-fx-border-color: black; -fx-border-radius: 10; -fx-background-color: white;">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

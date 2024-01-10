@@ -8,11 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.Ijse.TeaFctory.bo.custom.PreparedStockBO;
 import lk.Ijse.TeaFctory.bo.custom.RawStockBO;
 import lk.Ijse.TeaFctory.bo.custom.StockPlaceOrderBO;
@@ -270,15 +268,10 @@ public class StockDetailsFormcontroller {
 
     @FXML
     void btnbackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = (FXMLLoader.load(this.getClass().getResource("/view/dashBoard_form.fxml")));
-        Scene scene = new Scene(anchorPane);
-        Stage stage =(Stage) root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("DashBoard Form");
-        stage.centerOnScreen();
+        this.root.getChildren().clear();
+        this.root.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/stock_form.fxml")));
 
     }
-
     @FXML
     void cmbPreparedStockOnAction(ActionEvent event) {
         String id = cmbPreparedStockName.getValue();

@@ -1,5 +1,7 @@
 package lk.Ijse.TeaFctory.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -88,12 +90,12 @@ public class EmployeeFormcontroller {
     private void loadAllEmployee() {
 
 
-       // ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
+       ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
         try {
             ArrayList<EmployeeDto> dtoList = employeeBO.getAllEmployee();
 
             for (EmployeeDto dto : dtoList) {
-                tblEmployee.getItems().add(
+                obList.add(
                         new EmployeeTm(
                                 dto.getEmp_id(),
                                 dto.getFirst_name(),
@@ -105,7 +107,7 @@ public class EmployeeFormcontroller {
                 );
             }
 
-           // tblEmployee.setItems(obList);
+            tblEmployee.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -140,8 +142,15 @@ public class EmployeeFormcontroller {
     @FXML
     void btnSaveOnAction(ActionEvent event) {
 
-        boolean isEmployeeIdValideted = validateCustomer();
-        if (isEmployeeIdValideted) {
+        boolean isEmployeeIdValideted = validatedEmployee();
+        boolean isEmployeeFirstNameValidated = validatedEmployee();
+        boolean isEmployeeLastNameValidated = validatedEmployee();
+        boolean isEmployeeNicValidated = validatedEmployee();
+        boolean isEmployeeCityValidated = validatedEmployee();
+        boolean isEmployeeTelValidated = validatedEmployee();
+
+        if (isEmployeeIdValideted && isEmployeeFirstNameValidated && isEmployeeLastNameValidated && isEmployeeNicValidated &&
+        isEmployeeCityValidated && isEmployeeTelValidated) {
 
 
             String id = txtEmployeeid.getText();
@@ -150,9 +159,6 @@ public class EmployeeFormcontroller {
             String nic = txtnic.getText();
             String city = txtcity.getText();
             String tel = txttel.getText();
-
-            var dto = new EmployeeDto(id, first_name, last_name, nic, city, tel);
-
 
             try {
                 boolean isSaved = employeeBO.saveEmployee(new EmployeeDto(id, first_name, last_name, nic, city, tel));
@@ -169,12 +175,46 @@ public class EmployeeFormcontroller {
 
     }
 
-    private boolean validateCustomer() {
+    private boolean validatedEmployee() {
         String id = txtEmployeeid.getText();
 //        boolean isCustomerIDValidated = Pattern.compile("[C][0-9]{3,}").matcher(idText).matches();
         boolean isEmployeeIdValideted = Pattern.matches("[e][0-9]{2,}", id);
         if (!isEmployeeIdValideted) {
             new Alert(Alert.AlertType.ERROR, "Invalid Employee ID!").show();
+            return false;
+        }
+        String Firstname =txtFirst_name.getText();
+        boolean isEmployeeFirstNameValidated =Pattern.matches("[A-Za-z]+([ '-][A-Za-z]+)*$",Firstname);
+        if (!isEmployeeFirstNameValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Employee First name!").show();
+                    return false;
+        }
+
+        String Lastname =txtLast_name.getText();
+        boolean isEmployeeLastNameValidated =Pattern.matches("[A-Za-z]+([ '-][A-Za-z]+)*$",Lastname);
+        if (!isEmployeeLastNameValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Employee Last name!").show();
+            return false;
+        }
+
+        String nic =txtnic.getText();
+        boolean isEmployeeNicValidated =Pattern.matches("[0-9]{6,}",nic);
+        if (!isEmployeeNicValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Employee NIC!").show();
+            return false;
+        }
+
+        String city =txtcity.getText();
+        boolean isEmployeeCityValidated =Pattern.matches("[A-Za-z]+([ '-][A-Za-z]+)*$",city);
+        if (!isEmployeeCityValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Employee City!").show();
+            return false;
+        }
+
+        String tel =txttel.getText();
+        boolean isEmployeeTelValidated =Pattern.matches("[0-9]{10}",tel);
+        if (!isEmployeeTelValidated){
+            new Alert(Alert.AlertType.ERROR, "Invalid Employee Telephone Number!").show();
             return false;
         }
         return true;
